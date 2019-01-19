@@ -1,0 +1,18 @@
+.mr-2,
+.fa-sign-out {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.fa.fa-sign-out,
+.fa.fa-navicon,
+.fa.fa-dashboard,
+.fa.fa-pencil,
+.fa.fa-money,
+.fa.fa-paperclip {
+  font-size: 1.3em;
+}
+
+v-list-tile-action {
+  margin-right: 2%;
+}

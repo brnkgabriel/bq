@@ -1,0 +1,28 @@
+<nav>
+  <v-toolbar app>
+    <v-btn flat fab @click="drawer = !drawer">
+      <i class="fa fa-navicon"></i>
+    </v-btn>
+    <v-toolbar-title class="headline text-uppercase">
+      <span class="font-weight-light">bible</span>
+      <span>quiz</span>
+    </v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-btn flat href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank">
+      <span class="mr-2">sign out</span>
+      <i class="fa fa-sign-out"></i>
+    </v-btn>
+  </v-toolbar>
+  <v-navigation-drawer v-model="drawer" app class="indigo">
+    <v-list>
+      <v-list-tile v-for="(link, index) in links" :key="index" router :to="link.route">
+        <v-list-tile-action class="white--text">
+          <i :class="link.icon"></i>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title class="white--text">{{link.text}}</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+    </v-list>
+  </v-navigation-drawer>
+</nav>
