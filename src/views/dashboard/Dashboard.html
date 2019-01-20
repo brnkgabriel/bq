@@ -1,35 +1,38 @@
 <div id="dashboard">
   <v-layout row wrap>
-    <v-flex xs12 md6 lg3>
+    <v-flex xs12 md6>
       <v-card class="pa-3 mx-1 my-1">
-        <div class="caption grey--text">Biodata</div>
+        <div class="caption grey--text">Attributes</div>
+        <v-layout row>
+          <v-flex xs6>
+            <v-avatar color="indigo white--text">OI</v-avatar>
+            <div>{{first_name}} {{last_name}}</div>
+            <div>Age: 28</div>
+          </v-flex>
+          <v-flex xs6>
+            <div>Radar Graph</div>
+            <div>total points</div>
+            <div>total aggregate</div>
+            <div>total prize</div>
+          </v-flex>
+        </v-layout>
       </v-card>
     </v-flex>
-    <v-flex xs12 md6 lg3>
+    <v-flex xs12 md6>
       <v-card class="pa-3 mx-1 my-1">
-        <div class="caption grey--text">attrib 1</div>
-      </v-card>
-    </v-flex>
-    <v-flex xs12 md6 lg3>
-      <v-card class="pa-3 mx-1 my-1">
-        <div class="caption grey--text">attrib 2</div>
-      </v-card>
-    </v-flex>
-    <v-flex xs12 md6 lg3>
-      <v-card class="pa-3 mx-1 my-1">
-        <div class="caption grey--text">attrib 3</div>
+        <div class="caption grey--text">Trend</div>
       </v-card>
     </v-flex>
   </v-layout>
   <v-layout row wrap>
     <v-flex xs12 md9>
       <v-card class="pa-3 mx-1 my-1">
-        <div class="caption grey--text">score history</div>
+        <div class="caption grey--text">History</div>
       </v-card>
     </v-flex>
     <v-flex xs12 md3>
       <v-card class="pa-3 mx-1 my-1">
-        <div class="caption grey--text">notification</div>
+        <div class="caption grey--text">Notification</div>
       </v-card>
     </v-flex>
   </v-layout>

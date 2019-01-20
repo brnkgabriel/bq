@@ -12,3 +12,9 @@
 .fa.fa-paperclip {
   font-size: 1.3em;
 }
+
+@media screen and (max-width: 480px) { 
+  .headline *{
+    font-size: 0.6em;
+  }
+}
