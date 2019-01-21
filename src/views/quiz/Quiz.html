@@ -1,13 +1,16 @@
 <div id="quiz">
   <v-layout row wrap>
-    <v-flex xs12 md5>
+    <v-flex
+    xs12 sm4
+    v-for="(material, index) in materials"
+    :key="index">
       <v-card class="pa-3 mx-1 my-1">
-        <div class="caption grey--text">Calendar</div>
-      </v-card>
-    </v-flex>
-    <v-flex xs12 md7>
-      <v-card class="pa-3 mx-1 my-1">
-        <div class="caption grey--text">Grid</div>
+        <div class="thumbnail">
+          <img :src="material.thumbnail" alt="">
+        </div>
+        <div class="description">
+          {{ material.title }}
+        </div>
       </v-card>
     </v-flex>
   </v-layout>

@@ -6,14 +6,7 @@ export default {
   data () {
     return {
       materials: [],
-      email: null,
-      first_name: null,
-      last_name: null,
-      roles_permissions: null,
-      uid: null,
-      birthday: null,
-      scores: [],
-      state: {}
+      user: null
     }
   },
   created () {

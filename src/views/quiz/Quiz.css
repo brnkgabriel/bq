@@ -1,0 +1,37 @@
+#quiz .v-card {
+  height: 120px;
+  padding: 0 !important;
+  cursor: pointer;
+}
+
+.thumbnail,
+.description {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 2.5%; 
+}
+
+.thumbnail {
+  width: 25%;
+}
+
+.description {
+  height: 100%;
+  width: 65%;
+  padding: 2.5% 0;
+}
+
+.thumbnail::before {
+  content: '';
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.thumbnail img {
+  width: 100%;
+  max-width: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
