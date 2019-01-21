@@ -1,21 +1,40 @@
 import beforeRouteEnter from '../../util/beforeRouteEnter'
+import all from '../../util/all'
+import { bus } from '../../main'
+
 export default {
   data () {
     return {
-      email: 'brnkgabriel@gmail.com',
-      first_name: 'Olanrewaju',
-      last_name: 'Ibironke',
-      roles_permissions: {
-        role: 'student'
-      },
-      uid: '1234',
-      birthday: '10/31/1990',
+      materials: [],
+      email: null,
+      first_name: null,
+      last_name: null,
+      roles_permissions: null,
+      uid: null,
+      birthday: null,
       scores: [],
       state: {}
     }
   },
   created () {
-    console.log('this is', this)
+    all.utilities.studAndMat.call(this)
+    all.utilities.fetchMaterials()
+    bus.$on('incomingMaterials', () => {
+      all.utilities.studAndMat.bind(this)
+    })
+  },
+  computed: {
+    totalPts: function () {
+      return all.utilities.totalPts(this.user.scores, this.materials)
+    },
+    age: function () {
+      return all.utilities.age(this.user.birthday, all.utilities.today)
+    },
+    totalAggregate: function () {
+      return all.utilities.aggregate(
+        this.user.scores, this.materials, this.user.birthday
+      )
+    }
   },
   beforeRouteEnter: beforeRouteEnter
 }

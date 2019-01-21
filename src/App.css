@@ -1,1 +1,17 @@
 @import url('./assets/font-awesome.min.css');
+
+html {
+  overflow-y: auto;
+}
+
+.container {
+  height: 100%;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.pos-abs {
+  position: absolute;
+}
