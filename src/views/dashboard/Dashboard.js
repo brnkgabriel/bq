@@ -1,3 +1,4 @@
+import beforeRouteEnter from '../../util/beforeRouteEnter'
 export default {
   data () {
     return {
@@ -15,5 +16,6 @@ export default {
   },
   created () {
     console.log('this is', this)
-  }
+  },
+  beforeRouteEnter: beforeRouteEnter
 }

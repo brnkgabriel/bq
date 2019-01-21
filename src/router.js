@@ -15,7 +15,10 @@ export default new Router({
     {
       path: '/',
       name: 'dashboard',
-      component: Dashboard
+      component: Dashboard,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/login',
@@ -25,17 +28,26 @@ export default new Router({
     {
       path: '/quiz',
       name: 'quiz',
-      component: Quiz
+      component: Quiz,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/materials',
       name: 'materials',
-      component: Materials
+      component: Materials,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/rank',
       name: 'rank',
-      component: Rank
+      component: Rank,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })

@@ -1,4 +1,4 @@
-<nav>
+<nav v-if="isLoggedIn">
   <v-toolbar app>
     <v-btn flat fab @click="drawer = !drawer">
       <i class="fa fa-navicon"></i>
@@ -9,8 +9,7 @@
       <span> - {{page}}</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn flat href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank">
-      <!-- <span class="mr-2">sign out</span> -->
+    <v-btn flat @click="logout">
       <i class="fa fa-sign-out"></i>
     </v-btn>
   </v-toolbar>
