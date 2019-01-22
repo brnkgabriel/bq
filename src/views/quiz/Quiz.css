@@ -35,3 +35,7 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+iframe {
+  width: 100%;
+}
