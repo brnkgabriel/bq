@@ -21,12 +21,17 @@
         <div class="container fluid">
           <div class="layout row wrap">
             <div class="flex xs12 sm6">
-              <v-card class="pa-3 mx-1 my-1">
-                <iframe :src="selectedMaterial.location" frameborder="0"></iframe>
+              <v-card class="mx-1 my-1 material content pos-rel">
+                <iframe class="pos-abs" :src="selectedMaterial.location" frameborder="0"></iframe>
+                <div class="details pos-abs pa-3">
+                  <div>{{ selectedMaterial.title }}</div>
+                  <div>{{ selectedMaterial.event }}</div>
+                  <div>By {{ selectedMaterial.author }}</div>
+                </div>                
               </v-card>
             </div>
             <div class="flex xs12 sm6">
-              <v-card class="pa-3 mx-1 my-1">questions</v-card>
+              <v-card class="pa-3 mx-1 my-1 material questions">questions</v-card>
             </div>
           </div>
         </div>

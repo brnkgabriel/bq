@@ -23,6 +23,8 @@ export default {
     console.log('selected materials', this.selectedMaterial)
   },
   methods: {
+    sortMaterials: function (materials) {
+    },
     selectMaterial: function (material) {
       this.dialog = true
       this.selectedMaterial = material
