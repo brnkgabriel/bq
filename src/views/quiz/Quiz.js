@@ -1,6 +1,7 @@
 
 import beforeRouteEnter from '../../util/beforeRouteEnter'
 import all from '../../util/all'
+import quizUtil from '../../util/quiz-util'
 import { bus } from '../../main'
 
 export default {
@@ -22,16 +23,31 @@ export default {
     })
     console.log('selected materials', this.selectedMaterial)
   },
+  computed: {
+    sortedMaterials: function () {
+      var materials = []
+      all.timelineNos.forEach(timelineNo => {
+        this.materials
+          .filter(mat => quizUtil.text2No(mat.time) === timelineNo)
+          .forEach(mat => materials.push(mat))
+      })
+      return materials
+    }
+  },
   methods: {
-    sortMaterials: function (materials) {
+    sortMaterials: function () {
+      var materials = []
+      for (var i = 0; i < all.utilities.timelineNumbers.length; i++) {
+        var filtered = this.materials.filter(mat => {
+          return quizUtil.convert2No(mat.time) === all.utilities.timelineNumbers[i]
+        })
+        filtered.forEach(mat => materials.push(mat))
+      }
+      return materials
     },
     selectMaterial: function (material) {
       this.dialog = true
       this.selectedMaterial = material
-    },
-    deselectMaterial: function () {
-      this.dialog = false
-      this.selectedMaterial = null
     }
   },
   beforeRouteEnter: beforeRouteEnter

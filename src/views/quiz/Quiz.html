@@ -1,12 +1,20 @@
 <div id="quiz">
+  <!-- {{ sortMaterials() }} -->
   <v-layout row wrap>
-    <v-flex @click="selectMaterial(material)" xs12 sm4 v-for="(material, index) in materials" :key="index">
+    <v-flex @click="selectMaterial(material)" xs12 sm4 v-for="(material, index) in sortedMaterials" :key="index">
       <v-card class="pa-3 mx-1 my-1">
         <div class="thumbnail">
           <img :src="material.thumbnail" alt="">
         </div>
-        <div class="description">
-          {{ material.title }}
+        <div class="desc pos-rel">
+          <div class="desc-align-middle pos-abs">
+            <div class="desc-title">{{ material.title }}</div>
+            <div class="desc-event">{{ material.event }}</div>
+            <div class="desc-author">{{ material.author }}</div>
+          </div>
+          <div class="desc-time pos-abs">
+            <v-chip>{{ material.time }}</v-chip>
+          </div>
         </div>
       </v-card>
     </v-flex>
@@ -22,12 +30,12 @@
           <div class="layout row wrap">
             <div class="flex xs12 sm6">
               <v-card class="mx-1 my-1 material content pos-rel">
-                <iframe class="pos-abs" :src="selectedMaterial.location" frameborder="0"></iframe>
+                <iframe v-if="dialog" class="pos-abs" :src="selectedMaterial.location" frameborder="0"></iframe>
                 <div class="details pos-abs pa-3">
                   <div>{{ selectedMaterial.title }}</div>
                   <div>{{ selectedMaterial.event }}</div>
-                  <div>By {{ selectedMaterial.author }}</div>
-                </div>                
+                  <div>{{ selectedMaterial.author }}</div>
+                </div>
               </v-card>
             </div>
             <div class="flex xs12 sm6">

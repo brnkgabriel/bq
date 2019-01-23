@@ -6,6 +6,7 @@ import store from '../store/store'
 // var mapData = require('./map-data')
 
 var all = {
+  timelineNos: mapData.timelineNos,
   utilities: {
     today: {
       day: new Date().getDate(),
@@ -154,6 +155,18 @@ var all = {
         }
       }
       var delayTillArrival = setInterval(CheckMaterials, 10)
+    },
+    numberForm: function (idx, number) {
+      if (isNaN(parseInt(number))) { return -1000000 } else {
+        if (idx === -1) return parseInt(number) * (-1)
+        else return parseInt(number)
+      }
+    },
+    convert2No: function (date) {
+      var splitted = date.split(' ')
+      var suffixIdx = date.toLowerCase().indexOf('ad')
+      if (splitted.length === 3) return all.utilities.numberForm(suffixIdx, splitted[1])
+      else return all.utilities.numberForm(suffixIdx, splitted[0])
     }
   },
   login: {
