@@ -122,7 +122,7 @@ var all = {
       var dbMaterials = JSON.parse(localStorage.getItem('materials'))
       return { user: dbuser, materials: dbMaterials }
     },
-    studAndMat: function () {
+    userAndMat: function () {
       this.user = all.utilities.localStorage().user
       this.materials = all.utilities.localStorage().materials
     },

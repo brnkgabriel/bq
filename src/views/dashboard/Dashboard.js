@@ -10,10 +10,10 @@ export default {
     }
   },
   created () {
-    all.utilities.studAndMat.call(this)
+    all.utilities.userAndMat.call(this)
     all.utilities.fetchMaterials()
     bus.$on('incomingMaterials', () => {
-      all.utilities.studAndMat.bind(this)
+      all.utilities.userAndMat.bind(this)
     })
   },
   computed: {

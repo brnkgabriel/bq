@@ -1,14 +1,68 @@
 <div id="materials">
   <v-layout row wrap>
-    <v-flex xs12 md7>
+    <v-flex>
       <v-card class="pa-3 mx-1 my-1">
-        <div class="caption grey--text">List</div>
+        <v-toolbar card color="white">
+          <v-text-field prepend-icon="search" placeholder="Search for material" v-model="search" hide-details class="hidden-sm-and-down"></v-text-field>
+          <v-btn icon>
+            <v-icon>filter_list</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-divider></v-divider>
+        <v-card-text class="pa-0">
+          <v-data-table :headers="headers" :search="search" :items="materials" :rows-per-page-items="[5, 10,25,50,{text: 'All', 'value' : -1}]" class="elevation-1" item-key="title" select-all v-model="selected">
+            <template slot="items" slot-scope="props">
+              <td>
+                <v-checkbox primary hide-details v-model="props.selected"></v-checkbox>
+              </td>
+              <td>
+                <v-avatar size="32">
+                  <img :src="props.item.thumbnail" alt="">
+                </v-avatar>
+              </td>
+              <td>{{ props.item.title }}</td>
+              <td>{{ props.item.author }}</td>
+              <td>{{ props.item.time }}</td>
+              <td>{{ props.item.type }}</td>
+              <td>
+                <v-btn depressed outline icon fab dark color="primary" small>
+                  <v-icon>edit</v-icon>
+                </v-btn>
+                <v-btn depressed outline icon fab dark color="pink" small>
+                  <v-icon>delete</v-icon>
+                </v-btn>
+              </td>
+            </template>
+          </v-data-table>
+        </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex xs12 md5>
-      <v-card class="pa-3 mx-1 my-1">
-        <div class="caption grey--text">Preview</div>
+    <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+      <v-card>
+        <v-toolbar dark color="primary">
+          <v-btn icon dark @click="dialog = false">
+            <v-icon>close</v-icon>
+          </v-btn>
+          <v-toolbar-title class="text-uppercase">{{ selectedMaterial.title }}</v-toolbar-title>
+        </v-toolbar>
+        <div class="container fluid">
+          <div class="layout row wrap">
+            <div class="flex xs12 sm6">
+              <v-card class="mx-1 my-1 material content pos-rel">
+                <iframe v-if="dialog" class="pos-abs" :src="selectedMaterial.location" frameborder="0"></iframe>
+                <div class="details pos-abs pa-3">
+                  <div>{{ selectedMaterial.title }}</div>
+                  <div>{{ selectedMaterial.event }}</div>
+                  <div>{{ selectedMaterial.author }}</div>
+                </div>
+              </v-card>
+            </div>
+            <div class="flex xs12 sm6">
+              <v-card class="pa-3 mx-1 my-1 material questions">questions</v-card>
+            </div>
+          </div>
+        </div>
       </v-card>
-    </v-flex>
+    </v-dialog>
   </v-layout>
 </div>
