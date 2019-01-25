@@ -25,7 +25,7 @@
               <td>{{ props.item.time }}</td>
               <td>{{ props.item.type }}</td>
               <td>
-                <v-btn depressed outline icon fab dark color="primary" small>
+                <v-btn depressed outline icon fab dark color="primary" small @click="editMaterial(props.item)">
                   <v-icon>edit</v-icon>
                 </v-btn>
                 <v-btn depressed outline icon fab dark color="pink" small>

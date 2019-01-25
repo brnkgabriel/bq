@@ -48,5 +48,11 @@ export default {
       this.selectedMaterial = this.materials[0]
     })
   },
+  methods: {
+    editMaterial: function (material) {
+      this.selectedMaterial = material
+      this.dialog = true
+    }
+  },
   beforeRouteEnter: beforeRouteEnter
 }
